@@ -1,7 +1,6 @@
 {
   "name": "blog-backend",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node src",
@@ -12,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "koa": "^2.13.4",
+    "koa-bodyparser": "^4.3.0",
     "koa-router": "^12.0.0",
     "koa-tree-router": "^0.11.0",
     "nodemon": "^2.0.19"
@@ -19,5 +19,14 @@
   "devDependencies": {
     "eslint": "^8.23.1",
     "eslint-config-prettier": "^8.5.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/namwookyung/blog-backend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/namwookyung/blog-backend/issues"
+  },
+  "homepage": "https://github.com/namwookyung/blog-backend#readme",
+  "description": ""
 }
