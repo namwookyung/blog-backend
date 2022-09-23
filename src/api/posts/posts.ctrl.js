@@ -70,7 +70,7 @@ export const write = async (ctx) => {
 };
 
 /*
-  GET /api/posts?username=&tag=&page=
+  GET /api/posts?username=&page=
 */
 export const list = async (ctx) => {
   // query는 문자열이기 때문에 숫자로 변환해 주어야 한다.
@@ -83,7 +83,7 @@ export const list = async (ctx) => {
   }
 
   const { username } = ctx.query;
-  // tag, username 값이 유효하면 객체 안에 넣고, 그렇지 않으면 넣지 않음
+  // username 값이 유효하면 객체 안에 넣고, 그렇지 않으면 넣지 않음
   const query = {
     ...(username ? { 'user.username': username } : {}),
   };
