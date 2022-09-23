@@ -2,12 +2,15 @@
   "env": {
     "browser": true,
     "commonjs": true,
-    "es2021": true
+    "es2021": true,
+    "node": true
   },
   "extends": "eslint:recommended",
   "overrides": [],
   "parserOptions": {
-    "ecmaVersion": "latest"
+    "ecmaVersion": "latest",
+    "parser": "babel-eslint",
+    "sourceType": "module"
   },
   "rules": {}
 }
