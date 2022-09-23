@@ -6,21 +6,6 @@ import sanitizeHtml from 'sanitize-html';
 const { ObjectId } = mongoose.Types;
 
 const sanitizeOption = {
-  // allowedTags: [
-  //   'h1',
-  //   'h2',
-  //   'b',
-  //   'i',
-  //   'u',
-  //   's',
-  //   'p',
-  //   'ul',
-  //   'ol',
-  //   'li',
-  //   'blockquote',
-  //   'a',
-  //   'img',
-  // ],
   allowedAttributes: {
     a: ['href', 'name', 'target'],
     img: ['src'],
@@ -53,8 +38,7 @@ export const getPostById = async (ctx, next) => {
   POST /api/posts
   {
     title:'제목',
-    body:'내용',
-    tags:['태그1', '태그2']
+    body:'내용'
   }
 */
 export const write = async (ctx) => {
@@ -62,7 +46,6 @@ export const write = async (ctx) => {
     // 객체가 다음 필드를 가지고 있음을 검증
     title: Joi.string().required(), // required()가 있으면 필수 항목
     body: Joi.string().required(),
-    // tags: Joi.array().items(Joi.string()).required(), // 문자열로 이루어진 배열
   });
 
   // 검증하고 나서 검증 실패인 경우 에러 처리
@@ -103,7 +86,6 @@ export const list = async (ctx) => {
   // tag, username 값이 유효하면 객체 안에 넣고, 그렇지 않으면 넣지 않음
   const query = {
     ...(username ? { 'user.username': username } : {}),
-    // ...(tag ? { tags: tag } : {}),
   };
 
   try {
@@ -148,8 +130,7 @@ export const remove = async (ctx) => {
   PATCH /api/posts/:id
   {
     title : '수정',
-    body : '수정 내용',
-    tags : ['수정', '태그']
+    body : '수정 내용'
   }
 */
 export const update = async (ctx) => {
@@ -158,7 +139,6 @@ export const update = async (ctx) => {
   const schema = Joi.object().keys({
     title: Joi.string(),
     body: Joi.string(),
-    tags: Joi.array().items(Joi.string()),
   });
 
   // 검증하고 나서 검증 실패인 경우 에러 처리
